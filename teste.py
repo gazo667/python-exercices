@@ -1,45 +1,30 @@
-class Player:
-    
-    def _init_(self, pseudo, health, attack):
-        self.pseudo = pseudo
-        self.health = health
-        self.attack = attack
-        self.weapon = None
-        print("Bienvenue au joueur", pseudo, "/ point de vie", health, "/ force d'attaque", attack)
+eleves = ["Ali", "jean", "sophie", "jean", "marc"]
 
-    def get_pseudo(self):
-        return self.pseudo
-    
-    def get_health(self):
-     return self.health
-    
-    def get_attack(self):
-      return self.attack
-    
-    def damage(self, damege):
-       self.health -= damege                                                                                                                
-       
-    def attack_player(self, target_player):
-       target_player.damege()
+eleves_compte = []
+for eleve in eleves :
+   if eleve not in eleves_compte:
+      eleves_compte.append(eleve)
+      repeat = eleves.count(eleve)
+      print(f"\n {eleve} apparait une fois " if repeat==1 else f"\n {eleve} apparait {repeat} fois")
+
+      
+ # suppression des doublon
+eleves = eleves_compte
+print(f"\nAprès suppression des doublons, on a : eleves = {eleves} ")
+  
+ # tri de la liste
+eleves.sort(key= len) # selon la longueur des mots
+print(f"\nAprès le tri de la liste , on a : eleves = {eleves}")
 
 
+ # ajoutons un nouvelle eleve Paul
+eleves.append("Paul")
 
-Player1 = Player("sensey", 20, 30, 3)
-Player2 = Player("Bob", 20, 25, 3)
+ # verifions si sophie est dans la liste
+print("\nSophie est dans la liste " if "Sophie" in eleves else f"\nSophie n'est pas dans liste")
 
-Player1.attack_player(Player2)
-print(Player1.get_pseudo(), "attaque", Player2.get_pseudo())
-print("Bienvenue au joueur", Player1.get_pseudo, "/ point de vie", Player1.get_health, "/ force d'attaque", Player1.get_attack_value())  
-class weapon:
+ #suprimons le doublons jean
+eleves.remove("jean")
 
-    def __init__(self, name, damage):
-        self.name = name
-        self.damege = damage
-
-
-    def get_name(self):
-        return self.name
-    
-    def get_damege_amount(self):
-        return self.damege
-knife = weapon("couteau", 3)
+ # affichage de la liste finie
+print(f"\nAprès toute les modifications, la nouvelle liste est : eleves = {eleves}")
